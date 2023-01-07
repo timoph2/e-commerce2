@@ -23,6 +23,9 @@ let con = mysql.createConnection({
   database: 'e_commerce' //if DB alr created scenario
 });
 
+con.connect(function(err) {    //run connect once at top only, else cannot enqueue handshake err
+  if (err) throw err; });  
+
 // let sql = `Insert INTO Customer(Account_ID, Phone_no, Block_No, Street, Unit_No)
 // VALUES ( 'A1', 80221111, 51,'Ang Mo Kio Avenue 1', 11)`;
 
@@ -31,8 +34,7 @@ let con = mysql.createConnection({
 //   console.log("1 record inserted");
 // });
 
- 
-
+let Account_ID
 
 
 //login ====================== 
@@ -58,8 +60,7 @@ app.post('/', (req, res) => {
 
 //register ======================
 app.get('/register', (req, res) => {
-  con.connect(function(err) {
-    if (err) throw err;
+
     con.query("SELECT * FROM customer",  function (err, result, fields) {
       if (err) throw err;
       let no_of_accounts =  result.length + 1 
@@ -68,23 +69,23 @@ app.get('/register', (req, res) => {
       res.render('register', {Account_ID:Account_ID})
     });
   });
-})
 
 app.post('/register', (req, res) => {
-  let Account_ID = req.body.Account_ID
+  Account_ID = req.body.Account_ID
   let handphone = req.body.handphone
+  let street = req.body.street
   let block = req.body.block
   let house_no = req.body.house_no
   console.log(Account_ID,handphone,block,house_no)
 
-  // let sql = `Insert INTO Customer(Account_ID, Phone_no, Block_No, Street, Unit_No)
-// VALUES ( 'A1', 80221111, 51,'Ang Mo Kio Avenue 1', 11)`;
 
-// con.query(sql, function (err, result) {
-//   if (err) throw err;
-//   console.log("1 record inserted");
-// });
+  let sql = `Insert INTO Customer(Account_ID, Phone_no, Block_No, Street, Unit_No)
+  VALUES ( '${Account_ID}', ${handphone}, ${block},'${street}', ${house_no})`;
 
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+  });
   res.redirect('/')
 })
 
