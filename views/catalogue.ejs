@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>catalogue</title>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <!-- need import that websocket cdn -->
+  <script defer src="script.js"></script>
+</head>
+
+
+<body>
+
+  <form method="post" action="/order">
+    Item1: Fan [$5], by Supplier Ann <br>
+    <input type="number" name="fan" min="1" max="3" value="1"><br>
+    Item2: Cup [$10], by Supplier Bob<br>
+    <input type="number" name="cup" min="1" max="3" value="1"><br>
+    Item3: Tape [$15], by Supplier Cale <br>
+    <input type="number" name="tape" min="1" max="3" value="1"><br><br>
+
+    <button type="submit"> submit order! </button>
+  </form> 
+
+
+  <a href="/chatroom"> go to chat</a>
+   
+
+
+</body>
+</html>

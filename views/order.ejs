@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e-commerce</title>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <!-- need import that websocket cdn -->
+  <script defer src="script.js"></script>
+</head>
+
+
+<body>
+  Your confirmed orders are:
+  <table border>
+    <tr>
+      <th>fan</th>
+      <th>cup</th>
+      <th>tape</th>
+    </tr> 
+    <tr>
+      <td> <%= item1 %> </td>>
+      <td> <%= item2 %> </td>>
+      <td> <%= item3 %> </td>>
+    </tr> 
+
+    <tr> <th colspan="3">Total cost: <% item1*5 + item2*10 + item3*15 %> </th> </tr> 
+    <tr> <th colspan="3">Points gained: CALL MICRO FX here</th> </tr>
+    <tr> <th colspan="3">Trivia: CALL MICRO FX here</th> </tr> 
+  </table> <br>
+
+  <form action="post" method="/payment">
+    STRIPE SERVICE HERE
+    <button type="submit"> confirm order! </button>
+  </form>
+  <br>
+
+
+  
+how am i gonna connect SQL here for what values
+see er diagram
+damn. then i need include supplier lor. ahaha.
+supplier be in another file uh.
+then like this hwats differnece of MVC vs microservice
+well they are kinda the same. 1 split by logic,DB schema,views
+other by function (hence DB schema in same file)
+
+  <!-- let items = [item1,item2,item3] -->
+
+
+  <!-- <a href="/  %= room %>">Join</a> -->
+   
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e-commerce</title>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <!-- need import that websocket cdn -->
+  <script defer src="script.js"></script>
+</head>
+
+
+<body>
+
+    Please share your experience! <br><br> 
+
+    <form method="post" action="/feedback">
+      Item1: Fan   <br>
+      <input type="text" name="fan" value="ok"><br><br>
+      Item2: Cup  <br>
+      <input type="text" name="cup" value="ok"><br><br>
+      Item3: Tape   <br>
+      <input type="text" name="tape" value="ok"><br><br>
+  
+      <button type="submit"> send review! </button>
+    </form> 
+
+
+</body>
+</html>
